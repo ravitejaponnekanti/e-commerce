@@ -1,5 +1,7 @@
 package com.example.Ecommerce.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +30,32 @@ public class WebOrderQuantities {
 	  /** The order itself. */
 	  @ManyToOne(optional = false)
 	  @JoinColumn(name = "order_id", nullable = false)
+	  @JsonIgnore
 	  private WebOrders order;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+	public WebOrders getOrder() {
+		return order;
+	}
+	public void setOrder(WebOrders order) {
+		this.order = order;
+	}
+	  
 
 }
